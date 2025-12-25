@@ -12,4 +12,5 @@ plugins {
 }
 
 rootProject.name = "Minecraft-Plugin-Templates"
-include("core")
+include("core-api")
+include("core-plugin")

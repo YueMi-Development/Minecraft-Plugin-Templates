@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Set up Java 21
@@ -24,11 +24,11 @@ jobs:
       - name: Grant gradlew permission
         run: chmod +x gradlew
 
-      - name: Build core module
-        run: ./gradlew :core:build --no-daemon
+      - name: Build all modules
+        run: ./gradlew clean build --no-daemon
 
       - name: Upload plugin jar
         uses: actions/upload-artifact@v4
         with:
           name: plugin-jar
-          path: core/build/libs/*.jar
+          path: core-plugin/build/libs/*.jar
