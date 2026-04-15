@@ -1,6 +1,26 @@
 {
   "version": 1,
   "skills": {
+    "commit-work": {
+      "source": "softaworks/agent-toolkit",
+      "sourceType": "github",
+      "computedHash": "c9362cbf8d20af2fba1789a57c27e94cf063c0cbe659f40898d31d2afa3b1cb8"
+    },
+    "debugging-strategies": {
+      "source": "wshobson/agents",
+      "sourceType": "github",
+      "computedHash": "d7d8542d2205ebdb547d14dab24f467e334f73cfb30c4458888f5431713ca82d"
+    },
+    "dependency-updater": {
+      "source": "softaworks/agent-toolkit",
+      "sourceType": "github",
+      "computedHash": "3fc648ed28dfce104c7749318489af2c388de99dde2d85c145a4e028d994db41"
+    },
+    "humanizer": {
+      "source": "softaworks/agent-toolkit",
+      "sourceType": "github",
+      "computedHash": "c948e831d5fdfbe2e1fbbba1ebf8ab410a8f077ba529ddd522fd9ae40e6cc653"
+    },
     "minecraft-bukkit-pro": {
       "source": "rmyndharis/antigravity-skills",
       "sourceType": "github",
