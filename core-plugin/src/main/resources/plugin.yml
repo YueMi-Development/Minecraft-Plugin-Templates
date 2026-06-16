@@ -1,4 +1,5 @@
-name: ExamplePlugin
-version: 1.0.0
+name: '${pluginName}'
+version: '${version}'
 main: org.yuemi.Main
-api-version: 1.21
+authors: [${authors}]
+api-version: '${apiVersion}'

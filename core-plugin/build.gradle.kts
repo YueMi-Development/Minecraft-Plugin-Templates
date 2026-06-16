@@ -7,7 +7,24 @@ val pluginName: String by project
 val repoUrl: String by project
 val developerId: String by project
 val developerName: String by project
+val apiVersion: String by project
+val authors: String by project
 val pluginVersion: String = project.version.toString()
+
+tasks.processResources {
+    val props = mapOf(
+        "pluginName" to pluginName,
+        "version" to pluginVersion,
+        "apiVersion" to apiVersion,
+        "authors" to authors
+    )
+    inputs.properties(props)
+    filteringCharset = "UTF-8"
+    filesMatching("plugin.yml") {
+        expand(props)
+    }
+}
+
 
 dependencies {
     implementation(project(":core-api"))
