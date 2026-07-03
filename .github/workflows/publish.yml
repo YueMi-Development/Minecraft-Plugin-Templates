@@ -17,6 +17,10 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
 
       - name: Set up Java 21
         uses: actions/setup-java@v4
@@ -58,6 +62,7 @@ jobs:
       - name: Read Modrinth Configuration
         id: modrinth_config
         run: |
+          npx -y json5 modrinth.json5 -o modrinth.json
           PROJECT_ID=$(jq -r '.projectId' modrinth.json)
           LOADERS=$(jq -c '.loaders' modrinth.json)
           GAME_VERSIONS=$(jq -c '.gameVersions' modrinth.json)
