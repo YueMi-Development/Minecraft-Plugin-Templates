@@ -2,4 +2,5 @@ name: '${pluginName}'
 version: '${version}'
 main: org.yuemi.Main
 authors: [${authors}]
+contributors: [${contributors}]
 api-version: '${apiVersion}'
