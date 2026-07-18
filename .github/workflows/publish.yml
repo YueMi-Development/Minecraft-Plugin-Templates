@@ -166,6 +166,14 @@ jobs:
           folder: core-api/build/docs/javadoc
           branch: gh-pages
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Convert modrinth.json5 to JSON
+        run: npx -y json5 modrinth.json5 -o modrinth.json
+
       - name: Read Modrinth Configuration
         id: modrinth_config
         run: |
