@@ -32,6 +32,7 @@ tasks.processResources {
 
 dependencies {
     implementation("org.bstats:bstats-bukkit:3.2.1")
+    implementation("org.yuemi:mc-config-libs:1.0.1")
     implementation(project(":core-api"))
     compileOnly("io.papermc.paper:paper-api:1.21.6-R0.1-SNAPSHOT")
 }
@@ -51,7 +52,8 @@ tasks.named<com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar>("shadowJ
 
     configurations = listOf(project.configurations.runtimeClasspath.get())
 
-    relocate("org.bstats", project.group.toString())
+    relocate("org.bstats", "${project.group}.libs.bstats")
+    relocate("org.yuemi.config", "${project.group}.libs.config")
 
     manifest {
         attributes(
