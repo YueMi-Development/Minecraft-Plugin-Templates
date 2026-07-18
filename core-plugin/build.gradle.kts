@@ -38,6 +38,10 @@ tasks.withType<JavaCompile>().configureEach {
 }
 
 tasks.jar {
+    enabled = false
+}
+
+tasks.named<com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar>("shadowJar") {
     archiveBaseName.set(pluginName)
     archiveVersion.set(pluginVersion)
     archiveClassifier.set("")
@@ -50,12 +54,6 @@ tasks.jar {
             "License" to "MIT"
         )
     }
-}
-
-tasks.named<com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar>("shadowJar") {
-    archiveBaseName.set(pluginName)
-    archiveVersion.set(pluginVersion)
-    archiveClassifier.set("")
 }
 
 tasks.build {
