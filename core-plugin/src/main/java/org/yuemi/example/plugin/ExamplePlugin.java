@@ -4,6 +4,7 @@ import org.bukkit.plugin.ServicePriority;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.yuemi.example.api.ExampleApi;
 import org.yuemi.example.plugin.bstats.BStatsService;
+import org.yuemi.example.plugin.config.ConfigManager;
 
 public final class ExamplePlugin extends JavaPlugin {
 
@@ -11,6 +12,7 @@ public final class ExamplePlugin extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        new ConfigManager(this).loadAndMigrate();
         BStatsService.initialize(this);
         this.api = new ExampleApiImpl();
 
