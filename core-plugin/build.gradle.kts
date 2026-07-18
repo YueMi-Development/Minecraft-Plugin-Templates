@@ -1,6 +1,6 @@
 plugins {
     java
-    id("com.github.johnrengelman.shadow") version "8.1.1" // Shadow plugin
+    id("com.gradleup.shadow") version "8.3.0" // Shadow plugin
 }
 
 val pluginName: String by project
@@ -13,12 +13,14 @@ val contributors: String by project
 val pluginVersion: String = project.version.toString()
 
 tasks.processResources {
+    val bstatsPluginId = project.findProperty("bstatsPluginId") as? String ?: ""
     val props = mapOf(
         "pluginName" to pluginName,
         "version" to pluginVersion,
         "apiVersion" to apiVersion,
         "authors" to authors,
-        "contributors" to contributors
+        "contributors" to contributors,
+        "bstatsPluginId" to bstatsPluginId
     )
     inputs.properties(props)
     filteringCharset = "UTF-8"
@@ -29,6 +31,7 @@ tasks.processResources {
 
 
 dependencies {
+    implementation("org.bstats:bstats-bukkit:3.2.1")
     implementation(project(":core-api"))
     compileOnly("io.papermc.paper:paper-api:1.21.6-R0.1-SNAPSHOT")
 }
@@ -45,6 +48,10 @@ tasks.named<com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar>("shadowJ
     archiveBaseName.set(pluginName)
     archiveVersion.set(pluginVersion)
     archiveClassifier.set("")
+
+    configurations = listOf(project.configurations.runtimeClasspath.get())
+
+    relocate("org.bstats", project.group.toString())
 
     manifest {
         attributes(

@@ -4,3 +4,5 @@ main: org.yuemi.example.plugin.ExamplePlugin
 authors: [${authors}]
 contributors: [${contributors}]
 api-version: '${apiVersion}'
+
+bstats-id: '${bstatsPluginId}'
